@@ -28,7 +28,7 @@
     margin: 3px;
 }
 
-form input {
+.formDonate__form input {
     width: 300px;
     height: 40px;
     font-size: 16px;
