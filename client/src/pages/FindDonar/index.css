@@ -12,3 +12,30 @@
     justify-content: center;
     align-items: center ;
 }
+
+.findDonar__form{
+    margin: 20px;
+}
+
+.findDonar__form > * {
+    margin: 10px;
+}
+
+.findDonar__form input {
+    height: 40px !important;
+    font-size: 20px !important;
+    width: 250px !important;
+    border: none;
+    border-bottom: 0.3px solid grey;
+    font-size: 16px;
+    margin: 20px;
+}
+.findDonar__form select{
+    height: 40px;
+    width: 140px;
+    font-size: 16px;
+    border: none;
+    
+    border-bottom: 0.3px solid grey;
+    background-color:  rgb(246, 242, 242);
+}

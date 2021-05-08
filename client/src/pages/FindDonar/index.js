@@ -1,4 +1,5 @@
 import React , {useState , useEffect} from 'react';
+import moment from 'moment'
 import DonarCard from './../../common/DonarCard';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
@@ -31,12 +32,16 @@ const FindDonar = (props) => {
     }, [])
 
     const DList = DonorsContent.map(el => {
+        let rdate = el.recoveryDate;
+        rdate = moment(rdate).format('MMMM Do YYYY');
+        console.log(rdate);
+
         return (
             <DonarCard 
                 key={el._id}
                 name={el.name}
                 age={el.age}
-                recoveryDate={el.recoveryDate}
+                recoveryDate={rdate}
                 bloodGroup={el.bloodGroup}
                 location= {el.areaName + "  " + el.district + " "+ el.state + "  "+ el.pincode}
                 email={el.email}
@@ -44,23 +49,26 @@ const FindDonar = (props) => {
             />
         )
     });
- 
+
     return(
         <div className="findDonar__section">
             <h3>Donars</h3>
-            <form>
-                <input 
-                type="text"/>
-                <select required
-                        id="filter" 
-                        name="filter" 
-                        onChange={e => this.onTodoChange(e)}>
-                    <option value="BloodGroup">BloodGroup</option>
-                    <option value="location">location</option>
-                    <option value="name">name</option>
-                    <option value="recoveryDate">recoveryDate</option>
-                </select>
-            </form>
+            <div className="findDonar__form">
+                <form >
+                    <input 
+                    type="text"
+                    />
+                    <select required
+                            id="filter" 
+                            name="filter"
+                            placeholder="Filter Name" >
+                        <option value="BloodGroup">BloodGroup</option>
+                        <option value="location">location</option>
+                        <option value="name">name</option>
+                        <option value="recoveryDate">recoveryDate</option>
+                    </select>
+                </form>
+            </div>
             <div className="findDonar__cards">{DList}</div>
         </div>
  

@@ -8,23 +8,26 @@ const Card = (props) => {
     return(
         <div className="donar__card">
             <div className="donar__card--1">    
-                <p> <span>Name</span>:{props.name}</p>
+                <p> <span>Name</span>:{props.name}<span className="donar__card--verified">verified</span>
+                </p>
+                
                 <p> <span>Age</span>:{props.age}</p>
                 <p><span>Blood Group</span>:{props.bloodGroup}</p>
                 <p><span>Recovery Date</span>:{props.recoveryDate}</p>
+                
+            <p style={{"width":"80%"}}><span>Location</span>:{props.location}</p>
             </div>
-            <p><span>Location</span>:{props.location}</p>
-            <div onClick={props.onclick} className="donar__icons">
-                <span>
+            <div onClick={props.onclick} className="donar__icons">    
+                <div>
                     <NavLink to='/profile'>
-                        <SvgIcon src="hero.png" height="30px" width="30px" />        
+                        <SvgIcon src="chat.png" height="30px" width="30px" />        
                     </NavLink>
-                </span>
+                </div>
             </div>
         </div>
     );
 }
- 
+
 export default Card;    
- 
+
 

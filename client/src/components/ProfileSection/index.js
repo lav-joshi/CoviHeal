@@ -33,6 +33,7 @@ class ProfileSection extends React.Component {
     render() {
         return(
             <div className="ProfileSection__section">
+                <h6>User</h6>
                 <SvgIcon 
                     src="developer.svg"
                     height="250"

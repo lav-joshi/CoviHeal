@@ -2,7 +2,7 @@
     width: 100%;
     margin: 10px;
     border-radius: 5px;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    /* box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; */
     display: flex;
     justify-content: flex-start;
     padding: 5px;
@@ -12,22 +12,20 @@
     border-radius: 5px;
     height: 100%;
     width: 30%;
+    flex: 2;
     /* overflow-y: scroll; */
     
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    padding: 10px;
 }
 
-.chat__profiles > div {
-    height: 10%;
-    width: 95%;
-    background-color: rgb(156, 205, 236);
-    margin: 5px auto;
-    font-size: 16px;
-    font-weight: 600;
+.chat__profiles > h6 {
+    font-size: 30px;
 }
 
 
 .chat__textArea{
+    flex: 4;
     border-radius: 5px;
     height: 100%;
     width: 100%;
@@ -37,27 +35,101 @@
     justify-content: flex-end;
 
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    /* overflow: auto; */
+    text-overflow: clip;
+}
+
+.chat__textArea > h6 {
+    font-size: 30px;
+    justify-self: flex-start !important;
 }
 
 .chat__form{
-    background-color: rgb(235, 178, 178);
     width: 100%;
     display: flex;
 }
 .chat__typearea{
+    font-size: 16px;
+    margin: 10px;
+    height: 40px;
     flex: 4;
+    border-radius: 5px;
+    border: 0.5px solid rgb(193, 187, 187);
+    padding: 5px 10px;
+    overflow-y:scroll ;
 }
 .chat__textsubmit{
     flex: 1;
+    font-size: 16px;
+    margin: 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: 0.5px solid rgb(193, 187, 187);
+    transition: all 0.2s;
+    cursor: pointer;
 }
 
-.chat__card{
-    font-size: 16px;
-    margin: 5px;
+.chat__textsubmit:hover{
+    background-color: rgb(223, 222, 222);
+}
+
+
+.chat__msg{
+    margin: 5px 10px;
+    padding: 5px 0;
+    border-top: 0.1px solid rgb(218, 216, 216);
+}
+
+.chat__msg div{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.chat__msg span {
+    font-size: 13px;
+    font-weight: bold;
+} 
+
+.chat__msg p {
+    font-size: 14px;
+    text-overflow: clip;
+    overflow-wrap: break-word;
+    margin: 0;
 }
 
 .chat__history {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.chat__profile{
+    
+    height: 50px;
+    width: 95%;
+    background-color: rgb(236, 239, 241);
+    margin: 5px auto;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    /* height: ; */
+    margin: 10px auto;
+    padding: 12.5px 0;
+    border-radius: 5px;
+
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+
+.chat__profile:hover {
+    
+    background-color: rgb(215, 219, 221);
+}
+
+.chat__notify{
+    font-size: 14px;
+    margin: 5px 0px -10px 10px;
 }
