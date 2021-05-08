@@ -57,12 +57,13 @@ router.get("/getprofile",(req,res)=>{
 
 
 router.post("/addfav",async(req,res)=>{
-
+    
     Patient.findOne({email : req.body.patientemail } , async(err,patient)=>{
         if(err){
             res.status(400).json({
-                message : "You are not donor"
+                message : "You are not registered as patient"
             });
+            return;
         }
         Donor.findOne({email : req.body.donoremail }, async(err,donor)=>{
             if(err){
@@ -88,14 +89,37 @@ router.post("/addfav",async(req,res)=>{
 
 
 router.post("/getfavs", async (req,res)=>{
+
+    Patient.find({},(err , patients)=>{
     Donor.find({},(err , donor)=>{
         Patient.findOne({email : req.body.email},async (err,patient)=>{
             if(err){
              res.status(400).json({
                  message : "Something went wrong"
              });
+            }else if(!patient){
+                
+                Donor.findOne({email :  req.body.email},(err , drr)=>{
+                    if(err){
+                        res.status(400).json({
+                            message : "Something went wrong"
+                        });
+                    }else{
+                        let arr = [];
+                        drr.favs.forEach((x)=>{
+                            patients.forEach((y)=>{
+                               if(y.email ==x){
+                                arr.push({
+                                    donor_email : x,
+                                    donor_name : y.name
+                                })
+                               }
+                            })
+                        })
+                        res.status(200).send(arr);
+                    }
+                })
             }else{
-     
               let arr = [];
      
               patient.favs.forEach((x)=>{
@@ -112,6 +136,7 @@ router.post("/getfavs", async (req,res)=>{
             }
          });
     })
+})
 })
 
 module.exports = router;

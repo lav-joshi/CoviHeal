@@ -22,45 +22,49 @@ const ChatSection = ()=> {
     const onSubmitHandle = async (e)=>{
 
         e.preventDefault();
-        const refid_1 = sender_id + "_" + cookies.get("email"); 
-        const refid_2 =  cookies.get("email") + "_" +  sender_id ; 
+        let doc_id = "";
+        let y= cookies.get("email").localeCompare(sender_id);
+        if(y < 0){
+            doc_id =  cookies.get("email") + "_" +  sender_id ; 
+        }else{
+            doc_id =  sender_id + "_" + cookies.get("email");
+        }
 
-        const res = await ref.doc("Lav").get();
+        const res = await ref.doc(doc_id).get();
         let x  = [];
         if(res.data()){
             x = res.data()["msgs"]
         }
+
         x.push(msg);
-        console.log(x);
-        await ref.doc("Lav").set({
+
+        await ref.doc(doc_id).set({
           msgs: x
         });
+
         setMsg("");
+        getChats();
     }
+
     
      const getChats = async () => {
-        const res = await ref.doc("Lav").get();
-
-        if(res.data()){
-            console.log(res.data()["msgs"]);
-            setChats(x=>res.data()["msgs"]);
+        
+        let doc_id = "";
+        let y= cookies.get("email").localeCompare(sender_id);
+        if(y < 0){
+            doc_id =  cookies.get("email") + "_" +  sender_id ; 
+        }else{
+            doc_id =  sender_id + "_" + cookies.get("email");
         }
-        // res.onSnapshot((querySnapshot)=>{
-        //    const items = [];
-        //    querySnapshot.forEach((doc)=>{
-        //        console.log(doc.data());
-        //        items.push(doc.data());
-        //    });
-        //    setChats(items);
-        // })
 
+        ref.onSnapshot((querySnapshot)=>{
+           querySnapshot.forEach((doc)=>{
+               if(doc.id == doc_id){
+                  setChats(doc.data().msgs);
+               }
+           });
+        })
     }
-
-    useEffect(()=>{
-        getChats();
-    },[])
-
-
 
     useEffect(() => {
        axios.post("http://localhost:5000/patient/getfavs",{email : cookies.get("email")})
@@ -72,6 +76,12 @@ const ChatSection = ()=> {
        })
     }, [])
 
+    const handleChats = (donor_email)=>{
+      setSenderID(donor_email);
+      getChats();
+    }
+
+
     
     const chatHistory = chats.length === 0 ? null : chats.map(el => {
         return(
@@ -81,11 +91,11 @@ const ChatSection = ()=> {
 
     return(
         <div className="ChatSection">
-           
+
             <div className="chat__profiles">
                 {
                   favs.map((x)=>{
-                      return <div onClick={()=>setSenderID(x.donor_email)}> {x.donor_name} </div>
+                      return <div onClick={()=>handleChats(x.donor_email)}> {x.donor_name} </div>
                   })
                 }
             </div>
