@@ -1,0 +1,8 @@
+.Profile__section{
+    /* background-color: rgb(218, 88, 88    ); */
+
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    height: 80vh;
+}

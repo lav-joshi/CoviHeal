@@ -1,0 +1,17 @@
+{
+  "title": " Connecting the society together ",
+  "text": "We present to you CoviHeal a two-way system between a donor and patient. The one stop platform for all plasma related queries & donations.",
+  "button": [
+    {
+      "title": "Donate",
+      "onclick":"/form-donar"
+    },
+    {
+      "title": "Join As Patient",
+      "onclick":"/form-patient",
+      "color": "#fff"
+    }
+  ]
+}
+
+

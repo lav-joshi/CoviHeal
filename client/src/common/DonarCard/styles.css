@@ -1,0 +1,53 @@
+.donar__card{
+    width: 400px;
+    height: 150px;
+    background-color: rgb(224, 230, 233);
+    border-radius: 3px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin: 10px;
+    text-align: left;
+    transition: all 0.3s;
+    position: relative;
+}
+ 
+.donar__card:hover{
+    transform: scale(1.04);
+}
+ 
+.donar__card p{
+    font-size: 16px;
+    margin: 10px;
+    padding: 0;
+    /* background-color: rgb(206, 106, 106); */
+}
+ 
+ 
+.donar__card p span {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 2px;
+}
+ 
+.donar__card--1{
+    /* background-color: rgb(178, 247, 122); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+ 
+.donar__icons {
+    display: flex;
+    justify-content: space-around;
+    width: 15%;
+ 
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(-120%,-120%);
+    /* background-color: turquoise; */
+    height: 40px;
+    
+    cursor: pointer;
+}
+ 

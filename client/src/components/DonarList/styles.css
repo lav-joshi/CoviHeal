@@ -1,0 +1,12 @@
+.donarHome__section {
+    /* background-color: aqua; */
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.donarHome__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

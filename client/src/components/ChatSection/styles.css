@@ -1,0 +1,63 @@
+.ChatSection{
+    width: 100%;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px;
+}
+
+.chat__profiles{
+    border-radius: 5px;
+    height: 100%;
+    width: 30%;
+    /* overflow-y: scroll; */
+    
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.chat__profiles > div {
+    height: 10%;
+    width: 95%;
+    background-color: rgb(156, 205, 236);
+    margin: 5px auto;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.chat__textArea{
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.chat__form{
+    background-color: rgb(235, 178, 178);
+    width: 100%;
+    display: flex;
+}
+.chat__typearea{
+    flex: 4;
+}
+.chat__textsubmit{
+    flex: 1;
+}
+
+.chat__card{
+    font-size: 16px;
+    margin: 5px;
+}
+
+.chat__history {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,14 @@
+.findDonar__section{
+    /* background-color: rgb(73, 233, 84); */
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.findDonar__cards{
+    /* background-color: rgb(73, 219, 226); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center ;
+}

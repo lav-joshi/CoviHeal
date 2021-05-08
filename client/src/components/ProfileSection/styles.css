@@ -1,0 +1,41 @@
+.ProfileSection__section{
+    
+    /* background-color: rgb(109, 226, 142); */
+    display: flex;
+    border-radius: 5px;
+    width: 30%;
+    
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+
+}
+
+.ProfileSection__section form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    
+    /* background-color: rgb(109, 226, 213); */
+}
+
+.ProfileSection__section form input {
+    margin: 4px;
+    border: none;
+    border-bottom: 0.1px solid rgb(140, 127, 127);
+    height: 30px;
+    width: 200px;
+    font-size: 16px;
+    padding: 2px;
+    /* text-align: left !important; */
+}
+
+.profile__submit {
+    height: 30px !important;
+    width: 100px !important;
+}
