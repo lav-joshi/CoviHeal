@@ -10,24 +10,25 @@
     justify-content: flex-start;
     align-items: center;
     margin: 10px;
-
+ 
 }
-
+ 
 .ProfileSection__section form{
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 16px;
     font-weight: bold;
-
+ 
     /* overflow-y: scroll; */
     
     /* background-color: rgb(109, 226, 213); */
 }
-
+ 
 .ProfileSection__section form input {
-    margin: 4px;
+    margin: 10px;
     border: none;
     border-bottom: 0.1px solid rgb(140, 127, 127);
     height: 30px;
@@ -36,8 +37,11 @@
     padding: 2px;
     /* text-align: left !important; */
 }
-
+ 
 .profile__submit {
+    margin: 10px;
     height: 30px !important;
     width: 100px !important;
 }
+
+
