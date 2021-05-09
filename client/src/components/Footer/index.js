@@ -37,38 +37,9 @@ const Footer = ({ t }) => {
               <Col lg={10} md={10} sm={12} xs={24}>
                 <S.Empty />
                 <S.Language>{t("ADDRESS")}</S.Language>
-                <S.Para>Rancho Santa Margarita</S.Para>
-                <S.Para>2131 Elk Street</S.Para>
-                <S.Para>California</S.Para>
+                <S.Para>IIIT Lucknow</S.Para>
               </Col>
-              <Col lg={8} md={8} sm={12} xs={24}>
-                <S.Title>{t("Company")}</S.Title>
-                <S.Large left="true" to="/">
-                  {t("About")}
-                </S.Large>
-                <S.Large left="true" to="/">
-                  {t("Blog")}
-                </S.Large>
-                <S.Large left="true" to="/">
-                  {t("Press")}
-                </S.Large>
-                <S.Large left="true" to="/">
-                  {t("Careers & Culture")}
-                </S.Large>
-              </Col>
-              <Col lg={6} md={6} sm={12} xs={24}>
-                <S.Select>
-                  <S.Label htmlFor="select-lang">{t("Language")}</S.Label>
-                  <S.LangSelect
-                    // onChange={handleChange}
-                    // value={i18n.language}
-                    id="select-lang"
-                  >
-                    <option value="en">English</option>
-                    <option value="es">Hindi</option>
-                  </S.LangSelect>
-                </S.Select>
-              </Col>
+          
             </Row>
           </Container>
         </S.Footer>

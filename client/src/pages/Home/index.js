@@ -3,8 +3,8 @@ import IntroContent from "../../content/IntroContent.json";
 import MissionContent from "../../content/MissionContent.json";
 import ProductContent from "../../content/ProductContent.json";
 import ContactContent from "../../content/DonarContent.json";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import { Carousel } from 'react-responsive-carousel';
 
 import "./styles.css"
 
@@ -30,7 +30,7 @@ const Home = () => {
       {
         <div className="recommend__donar">
           <h6>Recommend A Donor</h6>
-          <div>
+          {/* <div>
           <Carousel>
                 <div>
                     <p className="legend">Lav recommended Vinamr for donor</p>
@@ -42,7 +42,7 @@ const Home = () => {
                     <p className="legend">Laharv recommended Vinamdasdr for donor</p>
                 </div>
             </Carousel>
-          </div>
+          </div> */}
           <form className="recommend__form">
             <input 
               name="Name"
