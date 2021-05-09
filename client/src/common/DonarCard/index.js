@@ -5,12 +5,22 @@ import {NavLink} from 'react-router-dom';
 import './styles.css';
  
 const Card = (props) => {
+    let color;
+    console.log(props.isVerified);
+    if(props.isVerified){
+        color = <span className="donar__card--verified">Verified</span>
+    }else{
+        color = <span className="donar__card--notverified">Not Verified</span>
+    }
     return(
+        
         <div className="donar__card">
             <div className="donar__card--1">    
-                <p> <span>Name</span>:{props.name}<span className="donar__card--verified">verified</span>
-                </p>
-                
+                <p> <span>Name</span>:{props.name}
+                  {
+                     color
+                  }
+                </p>  
                 <p> <span>Age</span>:{props.age}</p>
                 <p><span>Blood Group</span>:{props.bloodGroup}</p>
                 <p><span>Recovery Date</span>:{props.recoveryDate}</p>

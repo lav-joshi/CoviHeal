@@ -37,9 +37,24 @@ const Footer = ({ t }) => {
               <Col lg={10} md={10} sm={12} xs={24}>
                 <S.Empty />
                 <S.Language>{t("ADDRESS")}</S.Language>
-                <S.Para>IIIT Lucknow</S.Para>
+                <S.Para>IIIT Lucknow , 226002</S.Para>
               </Col>
-          
+              <Col lg={6} md={6} sm={12} xs={24}>
+                <S.Select>
+                   <S.Para>Developers </S.Para>
+                    <ul>
+                      <li>
+                        Lav Joshi
+                      </li>
+                      <li>
+                        Vinamr Bajaj
+                      </li>
+                      <li>
+                        Harshdeep
+                      </li>
+                    </ul>
+                </S.Select>
+              </Col>
             </Row>
           </Container>
         </S.Footer>
@@ -58,23 +73,33 @@ const Footer = ({ t }) => {
                     aria-label="homepage"
                     width="200px"
                   />
+                   <SvgIcon
+                    src="OrganForLife.webp"
+                    aria-label="homepage"
+                    width="110px"
+                    height = "100px"
+                  />
+                   <SvgIcon
+                    src="YOUTH.png"
+                    aria-label="homepage"
+                    width="110px"
+                    height = "100px"
+                  />
+                  <SvgIcon
+                    src="IIITL.png"
+                    aria-label="homepage"
+                    width="110px"
+                    height = "100px"
+                  />
                 </S.LogoContainer>
               </S.NavLink>
               <S.FooterContainer>
-                {/* <SocialLink
-                  href="https://github.com/Adrinlol/create-react-app-adrinlol"
-                  src="github.svg"
-                /> */}
                 <SocialLink
-                  href=""
+                  href="https://twitter.com/CoviHeal"
                   src="twitter.svg"
                 />
                 <SocialLink
-                  href=""
-                  src="linkedin.svg"
-                />
-                <SocialLink
-                  href=""
+                  href="https://www.instagram.com/coviheal21/"
                   src="instagram.svg"
                 />
               </S.FooterContainer>

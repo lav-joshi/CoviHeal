@@ -55,6 +55,8 @@ export const Extra = styled.section`
 export const LogoContainer = styled.div`
   display: flex;
   position: relative;
+  justify-content: space-between;
+  width : 600px;
 `;
 
 export const Select = styled.div`
@@ -108,7 +110,7 @@ export const Empty = styled.div`
 `;
 
 export const FooterContainer = styled.div`
-  max-width: 510px;
+  max-width: 150px;
   width: 100%;
   display: flex;
   justify-content: space-between;

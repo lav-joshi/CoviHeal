@@ -1,27 +1,28 @@
 import React from 'react';
 import SvgIcon from './../../common/SvgIcon/index';
 import './styles.css';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
+import moment from 'moment';
+
+const cookies = new Cookies();
 
 class ProfileSection extends React.Component {
 
     state = {
-        name:"name",
-        age:"26",
-        bloodGroup:"B",
-        recoveryDate:"3/01/2020",
-        address:{
-            areaName:"abc nagar",
-            pincode:"12345",
-            state:"abcState"
-        }
+        name:"",
+        age:"",
+        bloodGroup:"",
+        recoveryDate:"",
+        location :"",
+        isPatient : false
     }
 
     onTodoChange = (e) => {
-        console.log(e.target.name);
+    
         if(e.target.name==="name"){    
             this.setState({name:e.target.value})
         }else if(e.target.name=="age"){    
-            console.log(e.target)
             this.setState({age:e.target.value})
         }else if(e.target.name==="bloodGroup"){    
             this.setState({bloodGroup:e.target.value})
@@ -30,10 +31,32 @@ class ProfileSection extends React.Component {
         }
     }
 
+    async componentDidMount  (){
+        axios.post("http://localhost:5000/getprofile",{email : cookies.get("email")})
+        .then((res)=>{
+            let z = res.data.patient;
+            this.setState(({
+                name: z.name ,
+                age : z.age , 
+                bloodGroup : z.bloodGroup,
+                recoveryDate : moment(z.recoveryDate).format('MMMM Do YYYY'),
+                location : z.areaName + "," +z.district +"," + z.pincode,
+                isPatient : res.data.isPatient
+            }))
+        })
+        .catch((e)=>{
+           alert(e.message);
+        })
+    }
+
     render() {
         return(
             <div className="ProfileSection__section">
-                <h6 style={{"fontSize":"40px"}}>User</h6>
+                <h6 style={{"fontSize":"35px"}}>
+                    {
+                        this.state.isPatient ? "Patient" : "Donor"
+                    }
+                </h6>
                 <SvgIcon 
                     src="profile.svg"
                     height="80"
@@ -62,14 +85,16 @@ class ProfileSection extends React.Component {
                         type="text" 
                         name="recoveryDate" 
                         value={this.state.recoveryDate}
-                        onChange={e => this.onTodoChange(e)} />
+                        disabled
+                    />
                     
                     Address :
                     <input 
                         type="text" 
                         name="address" 
-                        value={this.state.address.areaName +',' + this.state.address.state +',' +  this.state.address.pincode   }
-                        onChange={e => this.onTodoChange(e)} />
+                        value={this.state.location }
+                        disabled
+                        />
                     
                     <input className="profile__submit" type="submit" value="submit" onClick={(e) => {
                         alert("submitted")

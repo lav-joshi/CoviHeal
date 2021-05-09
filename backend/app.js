@@ -98,8 +98,16 @@ app.post("/recommend", (req,res)=>{
         from:'eduon.portal@gmail.com',
         to:req.body.email,
         subject:"You are invited to donate plasma by " + req.body.recommendor,
-        html:"<h2> You are invited by "+ req.body.recommendor + " to donate plasma as you recovered from COVID early </h2> " +
-        "<b> Kindly visit covihelp.com for helping other to recover </b><br/> Team CoviHelp" 
+        html:` Greetings ${req.body.name},<br/><br/>
+        A warm welcome to you from us at <b>CoviHeal</b>, we hope that this mail finds you well.<b>
+        ${req.body.recommendor}</b> has told us about how you have recently recovered from COVID19.
+        Did you know that the blood plasma from a recovered person can help someone to recover from covid.
+        We are a two-way solution connecting the donor and patients while maintaining full privacy for both.<br/>
+        <b>
+        We request you to visit covihelp.com and help others!</b>
+        <br/><br/>
+        Regards,<br/>
+        Team CoviHelp`  
     };
 
     Recommend.create(temp , (err , recommend)=>{
@@ -112,6 +120,37 @@ app.post("/recommend", (req,res)=>{
             res.status(400).send("Something went wrong");
         }else{
             res.status(200).send("Thanks for  recommending");
+        }
+    });
+
+});
+
+app.post("/getprofile",(req,res)=>{
+
+    Patient.findOne({email : req.body.email},(err,patient)=>{
+
+        if(err){
+            res.status(400).json({
+                message : "Something went wrong"
+            });
+        }else if(!patient){
+            Donor.findOne({email : req.body.email},(err, donor)=>{
+                if(err){
+                    res.status(400).json({
+                        message : "Something went wrong"
+                    });
+                }else{
+                    res.status(200).json({
+                        donor , 
+                        isPatient : false
+                    })
+                }
+            })
+        }else{
+            res.status(200).json({
+                patient ,
+                isPatient : true
+            })
         }
     });
 

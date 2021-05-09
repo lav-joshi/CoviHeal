@@ -69,3 +69,15 @@
     border-radius: 10px !important;
 
 }
+
+.donar__card--notverified {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 !important;
+    margin-left: 15px !important;
+    background-color: rgb(202, 56, 56) !important;
+    padding: 5px 10px;
+    border-radius: 10px !important;
+
+}
