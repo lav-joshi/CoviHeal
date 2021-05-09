@@ -3,8 +3,8 @@ import IntroContent from "../../content/IntroContent.json";
 import MissionContent from "../../content/MissionContent.json";
 import ProductContent from "../../content/ProductContent.json";
 import ContactContent from "../../content/DonarContent.json";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import { Carousel } from 'react-responsive-carousel';
 
 import "./styles.css"
 
@@ -31,29 +31,22 @@ const Home = () => {
         <div className="recommend__donar">
           <h6>Recommend A Donor</h6>
           <div>
-          <Carousel>
-                <div>
-                    <p className="legend">Lav recommended Vinamr for donor</p>
-                </div>
-                <div>
-                    <p className="legend">Lasav recommended Vinabcmr for donor</p>
-                </div>
-                <div>
-                    <p className="legend">Laharv recommended Vinamdasdr for donor</p>
-                </div>
-            </Carousel>
           </div>
           <form className="recommend__form">
             <input 
+              placeholder="Name"
               name="Name"
               type="text"/>
             <input 
+              placeholder="Email"
               name="email"
               type="email"/>
             <input 
+              placeholder="Your Name"
               name="RecommendName"
               type="text"/>
             <input
+              className="recommend__formSubmit"
               type="submit"
               name="submit"/>
           </form>

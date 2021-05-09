@@ -206,7 +206,7 @@ class formDonate extends Component {
                             id="medicalReport"/>
                     </div>
 
-                    <input className="form__submit" type="submit" value="submit"  />
+                    <input className="form__submitDO" type="submit" value="submit"  />
                 </form>
             </div>
         );
