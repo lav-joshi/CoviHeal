@@ -41,7 +41,7 @@ const ChatSection = ()=> {
         x.push(msg);
 
         await ref.doc(doc_id).set({
-        msgs: x
+          msgs: x
         });
 
         setMsg("");
@@ -128,7 +128,6 @@ const ChatSection = ()=> {
                     </div>
                 </div>
 
-                <div className="chat__notify"><p>Notify the person via mail and phone number by clicking notify button</p></div>
 
                 {sender_id==null?null:<form className="chat__form" onSubmit={onSubmitHandle}>    
                     <input className="chat__typearea"
@@ -141,17 +140,24 @@ const ChatSection = ()=> {
                     <input className="chat__textsubmit"
                         name="submit_chat"
                         type="submit"
-                        value="Send"/>
+                        value="Send"
+                        style={{"backgroundColor" : "lightblue"}}
+                    />
                         
                     <input className="chat__textsubmit"
                         name="submit_chat"
                         type="submit"
-                        value="Notify"/>
+                        value="Notify"
+                        style={{"backgroundColor" : "lightgreen"}}
+                    />
                         
                     <input className="chat__textsubmit"
                         name="submit_chat"
                         type="submit"
-                        value="Report"/>
+                        value="Report"
+                        style={{"backgroundColor" : "salmon"}}
+                        
+                    />
                 </form>}
 
                 

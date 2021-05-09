@@ -7,10 +7,9 @@ var client = new twilio(accountSid, authToken);
 
 client.messages.create({
     body: 'Hello Vinamr',
-    to: '+918887865885',  // Text this number
+    to: '+9188403917164',  // Text this number
     from: '+19165883535' // From a valid Twilio number
-})
-.then((message) => console.log(message.sid))
+}).then((message) => console.log(message.sid))
 .catch((e)=>{
     console.log(e);
 });

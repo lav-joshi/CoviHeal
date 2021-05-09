@@ -33,11 +33,11 @@ class ProfileSection extends React.Component {
     render() {
         return(
             <div className="ProfileSection__section">
-                <h6>User</h6>
+                <h6 style={{"fontSize":"40px"}}>User</h6>
                 <SvgIcon 
-                    src="developer.svg"
-                    height="250"
-                    width="250"/>
+                    src="profile.svg"
+                    height="80"
+                    width="80"/>
                 <form>Name: 
                     <input 
                         type="text" 

@@ -30,8 +30,19 @@ const Home = () => {
       {
         <div className="recommend__donar">
           <h6>Recommend A Donor</h6>
-          <div>
-          </div>
+          {/* <div>
+          <Carousel>
+                <div>
+                    <p className="legend">Lav recommended Vinamr for donor</p>
+                </div>
+                <div>
+                    <p className="legend">Lasav recommended Vinabcmr for donor</p>
+                </div>
+                <div>
+                    <p className="legend">Laharv recommended Vinamdasdr for donor</p>
+                </div>
+            </Carousel>
+          </div> */}
           <form className="recommend__form">
             <input 
               placeholder="Name"
