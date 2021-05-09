@@ -6,7 +6,7 @@ We present to you CoviHeal a two-way system between a donor and patient. The one
  -  Navigate to **backend folder** .
  -  Install npm packages by running command **npm install**
  -  Run backend server by running command **npm start**
- -  Backend server is running at **port 8000** . 
+ -  Backend server is running at **port 5000** . 
  
 #### For Frontend:- 
     
