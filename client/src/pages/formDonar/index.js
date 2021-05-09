@@ -3,6 +3,8 @@ import './styles.css';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import SvgIcon from '../../common/SvgIcon/index';
+import notify from "./../../common/notif";
+import { toast, ToastContainer } from 'react-toastify';
 
 const cookies = new Cookies();
 
@@ -99,14 +101,13 @@ class formDonate extends Component {
         if(cookies.get("token")){
             createHeader(cookies.get("token")).post("/donor/register",x)
             .then((res)=>{
-               alert("Thank you for trying to save one's life");
+               notify("Thank you for trying to save one's life","success");
             })
             .catch((e)=>{
-                console.log(e);
-                alert("Something went wrong");
+                notify("Something went wrong","error");
             })
         }else{
-            alert("Please SignIn first");
+            notify("Please SignIn first","error");
         }
     }
 
@@ -208,6 +209,7 @@ class formDonate extends Component {
 
                     <input className="form__submitDO" type="submit" value="submit"  />
                 </form>
+                <ToastContainer/>
             </div>
         );
     }

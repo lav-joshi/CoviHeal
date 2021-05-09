@@ -122,8 +122,34 @@ app.post("/recommend", (req,res)=>{
             res.status(200).send("Thanks for  recommending");
         }
     });
-
 });
+
+
+
+app.post("/notify", (req,res)=>{
+     console.log(req.body.email);
+    var mailOptions ={
+        from:'eduon.portal@gmail.com',
+        to:req.body.email,
+        subject:"Someone is requesting you to donate plasma .",
+        html:` Greetings <br/><br/>
+        A warm welcome to you from us at <b>CoviHeal</b>, we hope that this mail finds you well.
+        We request you to visit covihelp.com and help the needy person ! 
+        <br/><br/>
+        Regards,<br/>
+        Team CoviHelp`  
+    };
+
+    transporter.sendMail(mailOptions , async (err, info)=>{
+        if(err){
+            res.status(400).send("Something went wrong");
+        }else{
+            res.status(200).send("Person Notified");
+        }    
+    });
+  
+});
+
 
 app.post("/getprofile",(req,res)=>{
 

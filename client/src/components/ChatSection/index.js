@@ -7,7 +7,8 @@ import axios from 'axios';
 import './styles.css';
 import moment from 'moment'
 import SvgIcon from '../../common/SvgIcon';
-
+import notify from '../../common/notif';
+import { toast, ToastContainer } from 'react-toastify';
 const cookies = new Cookies();
 
 const ChatSection = ()=> {
@@ -19,7 +20,7 @@ const ChatSection = ()=> {
     const [favs , setFavs] = useState([]);
     
     const changeHandle = (e) => {
-    setMsg(e.target.value);
+       setMsg(e.target.value);
     }
     
     const onSubmitHandle = async (e)=>{
@@ -72,7 +73,6 @@ const ChatSection = ()=> {
         ref.onSnapshot((querySnapshot)=>{
             querySnapshot.forEach((doc)=>{
                 if(doc.id == doc_id){
-                    // console.log("doc_id",doc_id)
                     setChats(doc.data().msgs);
                 }
             });
@@ -91,6 +91,7 @@ const ChatSection = ()=> {
 
 
     const handleChats = (donor_email)=>{
+        console.log(donor_email);
         setSenderID(donor_email);
         getChats();
     }
@@ -104,6 +105,20 @@ const ChatSection = ()=> {
             </div>
         );
     });
+
+    const handleNotify = ()=>{
+         
+        axios.post("http://localhost:5000/notify",{email : sender_id}).then((res)=>{
+            notify("User has been notified" , "success");
+        })
+        .catch((e)=>{
+            notify("Something went wrong" , "error");
+        })
+    }
+
+    const handleReport = ()=>{
+        notify("User has been reported" , "error");
+    }
   
     return(
         <div className="ChatSection">
@@ -143,20 +158,26 @@ const ChatSection = ()=> {
                         name="submit_chat"
                         type="button"
                         value="Notify"
+                        onClick = {(e)=>{
+                           handleNotify()
+                        }}
                         style={{"backgroundColor" : "lightgreen"}}
                     />
                         
                     <input className="chat__textsubmit"
                         name="submit_chat"
-                        type="submit"
+                        type="button"
                         value="Report"
+                        onClick = {(e)=>{
+                            handleReport()
+                         }}
                         style={{"backgroundColor" : "salmon"}}
-                        
                     />
                 </form>}
 
                 
             </div>
+            <ToastContainer/>
         </div>
     );
 

@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
-
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -8,6 +7,7 @@ import routes from "./config";
 import GlobalStyles from "../globalStyles";
 
 const Router = () => {
+
   return (
     <Suspense fallback={null}>
       <GlobalStyles />

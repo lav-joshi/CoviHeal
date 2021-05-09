@@ -8,12 +8,14 @@ import ContactContent from "../../content/DonarContent.json";
 
 import "./styles.css"
 import axios from "axios";
-
+import notify from "./../../common/notif";
+import { toast, ToastContainer } from 'react-toastify';
 
 const DonarList = lazy(() => import("../../components/DonarList"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
+
 
 const Home = () => {
 
@@ -31,11 +33,12 @@ const Home = () => {
       email ,
       recommendor
     }
+    
     axios.post("http://localhost:5000/recommend", x)
     .then((res)=>{
-       alert("Thanks for recommending ");
+       notify("Thanks for recommending " , "success");
     }).catch((e)=>{
-       alert("Something went wrong");
+       notify("Something went wrong", "error");
     })
     
     setName("");
@@ -116,6 +119,7 @@ const Home = () => {
         content={ContactContent.text}
         id="contact"
       />
+      <ToastContainer/>
     </Container>
   );
 };

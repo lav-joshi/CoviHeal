@@ -2,6 +2,8 @@ import React ,{ Component } from 'react';
 import './styles.css';
 import SvgIcon from '../../common/SvgIcon/index';
 import axios from 'axios';
+import notify from "./../../common/notif";
+import { toast, ToastContainer } from 'react-toastify';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
@@ -98,11 +100,10 @@ class formPatient extends Component {
         if(cookies.get("token")){
             createHeader(cookies.get("token")).post("/patient/register",x)
             .then((res)=>{
-               alert("You are registered as patient , Now you can search acc to your requirement");
+               notify("Registered!! as patient. Now visit FindDonar section ." , "success");
             })
             .catch((e)=>{
-                console.log(e);
-                alert("Something went wrong");
+                notify("Something went wrong","error");
             })
         }else{
             alert("Please SignIn first");
@@ -208,6 +209,7 @@ class formPatient extends Component {
 
                     <input className="form__submitDO" type="submit" value="submit"  />
                 </form>
+                <ToastContainer/>
             </div>
         );
     }
